@@ -1,24 +1,33 @@
-name: Build and deploy flutter web app
-
+name: Flutter Web
 on:
   push:
-    branches: [ "main" ]
-
+    branches:
+      - master
 jobs:
   build:
+    name: Build Web
+    env:
+      my_secret: $
     runs-on: ubuntu-latest
-
     steps:
-      - uses: actions/checkout@v3
-      - uses: subosito/flutter-action@v2
+      - uses: actions/checkout@v1
+      - uses: subosito/flutter-action@v1
         with:
-          channel: 'main'
-      - run: flutter pub get
+          channel: 'master'
       - run: flutter config --enable-web
-      - run: flutter build web --base-href "/${{ github.event.repository.name }}/"
-      
-      - run: git config user.name github-actions
-      - run: git config user.email github-actions@github.com
-      - run: git --work-tree build/web add --all
-      - run: git commit -m "Automatic deployment by github-actions"
-      - run: git push origin HEAD:gh_pages --force
+      - run: flutter pub get
+      - run: flutter build web --base-href "/chatapiweb/"
+      # - run: flutter build web --release
+      - run: |
+          cd ./build/web
+          git init
+          git config --global user.email 5712labs@gmail.com
+          git config --global user.name 5712labd
+          git status
+          git remote add origin https://github.com/5712labs/chatapiweb.git
+          git checkout -b gh-pages
+          git add --all
+          git commit -m "Automatic deployment by github-actions"
+          git push origin gh-pages -f
+          
+          

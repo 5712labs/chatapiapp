@@ -39,8 +39,8 @@ class _ApiWithChatGPTScreenState extends State<ApiWithChatGPTScreen> {
     };
 
     try {
-      // final response = await http.get(Uri.parse(url), headers: headers);
-      final response = await http.get(Uri.parse(url));
+      final response = await http.get(Uri.parse(url), headers: headers);
+      // final response = await http.get(Uri.parse(url));
       print(response.statusCode);
       print('response.body: ${response.body}');
       var datas = json.decode(response.body);
