@@ -44,7 +44,7 @@ class MyApp extends StatelessWidget {
     ));
 
     return MaterialApp(
-        title: 'Flutter Demo',
+        title: 'Flutter ChatAPI',
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
           useMaterial3: true,
