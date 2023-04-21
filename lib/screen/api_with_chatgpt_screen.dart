@@ -32,10 +32,16 @@ class _ApiWithChatGPTScreenState extends State<ApiWithChatGPTScreen> {
     // 'https://kosis.kr/openapi/statisticsData.do?method=getList&apiKey=${kosisApiKey}&format=json&jsonVD=Y&userStatsId=ocw2scw/116/DT_MLTM_2082/2/1/20230404083430&prdSe=M&newEstPrdCnt=1';
     final url =
         'https://kosis.kr/openapi/statisticsData.do?method=getList&apiKey=$kosisApiKey&format=json&jsonVD=Y&userStatsId=$kosisApiId/116/DT_MLTM_2082/2/1/20230404111619&prdSe=M&newEstPrdCnt=3';
-
+// https://corsproxy.github.io/
+// https://cros-anywhere.herokuapp.com/
     Map<String, String> headers = {
-      'key': 'Access-Control-Allow-Origin',
-      'value': '*',
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Methods': 'GET, POST, OPTIONS, PUT, PATCH, DELETE',
+      'Access-Control-Allow-Headers':
+          'Origin, X-Requested-With, Content-Type, Accept'
+      // 'content-type': 'application/json'
+      // 'key': 'Access-Control-Allow-Origin',
+      // 'value': '*',
     };
 
     try {
