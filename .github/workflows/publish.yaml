@@ -30,5 +30,3 @@ jobs:
           git add --all
           git commit -m "Automatic deployment by github-actions"
           git push origin gh-pages -f
-          
-          
